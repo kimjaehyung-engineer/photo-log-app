@@ -277,13 +277,13 @@ export default function Home() {
           const finalWidth = imgWidth * scale;
           const finalHeight = imgHeight * scale;
 
-          // Calculate exact offsets in EMUs to match the centered title
+          // ExcelJS offsets are in EMUs (1 pixel = 9525 EMUs)
           const EMU_PER_PIXEL = 9525;
           const offsetX = Math.max(0, (totalWidthPx - finalWidth) / 2) * EMU_PER_PIXEL;
           const offsetY = Math.max(0, (totalHeightPx - finalHeight) / 2) * EMU_PER_PIXEL;
 
           worksheet.addImage(imageId, {
-            tl: { col: 0, row: currentRow - 1, colOff: offsetX, rowOff: offsetY },
+            tl: { col: 0, row: currentRow - 1, colOff: offsetX, rowOff: offsetY } as any,
             ext: { width: finalWidth, height: finalHeight },
             editAs: 'oneCell'
           });
