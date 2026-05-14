@@ -279,8 +279,9 @@ export default function Home() {
           
           // Calculate target area in pixels
           // 1 column unit approx 7.5px, 1 row point approx 1.33px
-          const totalWidthPx = (15 + 65) * 7.5; 
-          const totalHeightPx = imageRowsCount * 20 * 1.33;
+          // A4 가로 실측 너비(약 715px)와 고정 높이(15행=400px) 기준으로 정밀화
+          const totalWidthPx = 715; 
+          const totalHeightPx = 400; 
           
           const imgAspectRatio = imgWidth / imgHeight;
           const boxAspectRatio = totalWidthPx / totalHeightPx;
